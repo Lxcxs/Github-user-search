@@ -16,7 +16,7 @@ async function getApi() {
     const response = await fetch(`https://api.github.com/users/${val}`)
     const jsonData = await response.json()
     const numItem = [jsonData.public_repos, jsonData.followers, jsonData.following]
-    const titles = ['Repositórios', 'Seguindo', 'Seguidores']
+    const titles = ['Repositórios', 'Seguidores', 'Seguindo']
     const textos = [jsonData.location, jsonData.company]
     console.log(jsonData)
 
