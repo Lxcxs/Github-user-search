@@ -14,6 +14,7 @@ section.main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
 }
 section.container {
@@ -141,6 +142,12 @@ div.user-info > div {
     display: flex;
     gap: .4em;
     align-items: center;
+}
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+    font-weight: 300;
 }
 
 
