@@ -10,7 +10,6 @@ const item3 = document.createElement('div')
 
 const titleNum = document.createElement('p')
 
-
 async function getApi() {
     const val = document.querySelector('input').value;
     const response = await fetch(`https://api.github.com/users/${val}`)
@@ -20,9 +19,10 @@ async function getApi() {
     const textos = [jsonData.location, jsonData.company]
     console.log(jsonData)
 
-    content.style.display = 'flex'
+    
 
     if (val != '') {
+        content.style.display = 'flex'
         let imageParent = document.getElementById('profile')
         image.src = jsonData.avatar_url
         imageParent.appendChild(image)
@@ -67,7 +67,8 @@ async function getApi() {
         })
         
     }else {
-        alert('errado')
+        alert('Você preciso preencher o campo com um nome de usuário!')
+        stop()
     }
     
 }
