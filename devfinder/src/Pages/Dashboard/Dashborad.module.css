@@ -1,0 +1,126 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+.error {
+  font-weight: 300;
+  color: red;
+  font-style: italic;
+}
+.content {
+  width: 50em;
+  height: auto;
+  padding: 1.5em;
+  border-radius: 1em;
+  box-shadow: 0 2px 3px #00000077;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  background: #253746;
+}
+.devFinder {
+  background: #161f27;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .5em;
+}
+
+.input {
+  background: white;
+  color: black;
+  border: none;
+  font-size: 1.2em;
+  padding: .5em;
+  border-radius: .5em;
+  transition: .3s;
+  border: 2px solid transparent;
+}
+.input:hover,
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #3f9bb3;
+  border: 2px solid rgb(146, 224, 255);
+}
+
+button {
+  background: #3f9bb3;
+  padding: 0 1em;
+  border: none;
+  border-radius: .7em;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background-color: #2d7688;
+}
+
+.contentUser {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  transition: 1s;
+}
+.containerUser {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1em;
+}
+.containerUser img {
+  max-width: 10em;
+  border-radius: 50%;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  gap: .5em;
+}
+
+.user p {
+  margin-top: 2vh;
+  /* position: absolute;
+  bottom: 10px; */
+}
+
+.userStatus {
+  width: 100%;
+  padding: 1em .5em;
+  background: #161f27;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: .5em;
+}
+.userStatus div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+}
+
+.location {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.location p {
+  display: flex;
+  align-items: center;
+  gap: .3em;
+}

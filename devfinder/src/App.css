@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100&family=Kanit:wght@300;400;500;600;700;800&family=Spectral:wght@700&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-family: 'Kanit', sans-serif;
+}
+
+body {
+  background: #161f27;
+}
+
+@keyframes openSmooth {
+  to {
+    opacity: 1;
+  }
+}
