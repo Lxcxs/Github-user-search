@@ -1,14 +1,15 @@
 import React from "react";
 import styles from "./Dashborad.module.css";
-import { BiLinkAlt } from "react-icons/bi";
+import { BiLinkAlt, BiSearchAlt } from "react-icons/bi";
 import { IoLocationSharp } from 'react-icons/io5'
 import { BsFillBuildingsFill } from 'react-icons/bs'
 
 function Dashboard() {
-  const [username, setUsername] = React.useState("");
   const [data, setData] = React.useState(null);
-  const [ativo, setAtivo] = React.useState(false);
   const [error, setError] = React.useState(null);
+  const [ativo, setAtivo] = React.useState(false);
+  const [notFound, setNotFound] = React.useState(null);
+  const [username, setUsername] = React.useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -16,15 +17,26 @@ function Dashboard() {
     if (username !== '') {
       const response = await fetch(`https://api.github.com/users/${username}`);
       const json = await response.json();
-      setData(json);
-      setAtivo(true);
-      setUsername('')
-      setError(null)
-      console.log(data);
+      if ('message' in json) {
+        setUsername('')
+        setError(null)
+        setNotFound('Usuário não encontrado.')
+
+      } else {
+        setUsername('')
+        setData(json)
+        setError(null)
+        setAtivo(true)
+        setNotFound(null)
+
+      }
+
     } else {
       setError('Você precisa preencher este campo!')
+      setNotFound(null)
     }
   }
+
 
   return (
     <>
@@ -41,14 +53,15 @@ function Dashboard() {
                 value={username}
                 onChange={({ target }) => setUsername(target.value)}
               />
-              <button>Pesquisar</button>
+              <button><BiSearchAlt size={30} color="#eee"/></button>
             </form>
             {error && <p className={styles.error}>{error}</p>}
+            {notFound && <p className={styles.error}>{notFound}</p>}
           </div>
 
           {ativo && (
-            <div className={styles.contentUser}>
-              <div className={styles.containerUser}>
+            <div className={styles.containerUser}>
+              <div className={styles.contentUser}>
                 <img src={data.avatar_url} alt={data.login} />
                 <div className={styles.user}>
                   <h1>{data.name}</h1>
@@ -59,7 +72,9 @@ function Dashboard() {
                     <p>não possui biografia</p>
                   )}
                 </div>
-                <BiLinkAlt size={25}/>
+                <a className={styles.link} href={data.html_url} target="blank">
+                  <BiLinkAlt size={25}/>
+                </a>
               </div>
 
               <div className={styles.userStatus}>
@@ -87,6 +102,9 @@ function Dashboard() {
               </div>
             </div>
           )}
+
+          
+          
         </div>
       </section>
     </>
